@@ -13,4 +13,4 @@ curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin
 RUN echo "INSTALLING MYSQL"
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get install -y mysql-server
-
+CMD ["mysqld_safe"]
