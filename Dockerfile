@@ -2,10 +2,10 @@ FROM ubuntu:15.04
 
 MAINTAINER Antonio Manuel Hernández Sánchez
 
-RUN echo "INSTALLING PHALCON"; \
+RUN echo "INSTALLING PHP & PHALCON"; \
 apt-get update && apt-get install -y python-software-properties software-properties-common ; \
 apt-add-repository -y ppa:phalcon/stable; \
-apt-get update && apt-get install -y php5-phalcon php5-cli
+apt-get update && apt-get install -y php5-phalcon php5-cli php5-redis php5-intl
 
 RUN echo "INSTALLING COMPOSER";apt-get install -y curl; \
 curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer
@@ -13,4 +13,4 @@ curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin
 RUN echo "INSTALLING MYSQL"
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get install -y mysql-server
-CMD ["mysqld_safe"]
+RUN mysqld_safe & > /dev/null
