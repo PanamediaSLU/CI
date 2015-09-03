@@ -13,4 +13,6 @@ curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin
 RUN echo "INSTALLING MYSQL"
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get install -y mysql-server
-RUN mysqld_safe & > /dev/null
+
+RUN echo "INSTALLING REDIS"
+RUN apt-get install -y redis-server
