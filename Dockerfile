@@ -7,6 +7,9 @@ apt-get update && apt-get install -y python-software-properties software-propert
 apt-add-repository -y ppa:phalcon/stable; \
 apt-get update && apt-get install -y php5-phalcon php5-cli php5-redis php5-intl php5-xdebug php5-mysql php5-curl php5-mcrypt
 
+ADD 20-mcrypt.ini /etc/php5/apache2/conf.d/20-mcrypt.ini
+ADD 20-mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
+
 RUN echo "INSTALLING COMPOSER";apt-get install -y curl; \
 curl -sS https://getcomposer.org/installer | php;mv composer.phar /usr/local/bin/composer
 
