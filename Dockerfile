@@ -21,5 +21,5 @@ RUN echo "INSTALLING REDIS"
 RUN apt-get install -y redis-server
 
 RUN echo "INSTALLING NODE.JS AND NPM"; \
-url -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -; \
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -; \
 apt-get install -y nodejs
